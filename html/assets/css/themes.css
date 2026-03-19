@@ -1,0 +1,90 @@
+/* ===== Theme Variables & Overrides ===== */
+
+:root {
+  --glass-bg: rgba(10, 10, 15, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --glass-blur: blur(20px);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --accent-blue: #3b82f6;
+  --accent-green: #4ade80;
+  --accent-red: #ef4444;
+  --accent-yellow: #fbbf24;
+}
+
+/* ===== Themes ===== */
+body[data-theme="dark"] { /* default, no overrides needed */ }
+
+body[data-theme="midnight"] {
+  --glass-bg: rgba(10, 15, 40, 0.92);
+  --glass-border: rgba(100, 130, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 10, 40, 0.4);
+}
+body[data-theme="midnight"] .panel { border-color: rgba(100, 130, 255, 0.12) }
+body[data-theme="midnight"] .btn-confirm { background: #6366f1 }
+body[data-theme="midnight"] .btn-confirm:hover { background: #818cf8 }
+body[data-theme="midnight"] .category-tab.active { background: rgba(99, 102, 241, 0.2); border-color: rgba(99, 102, 241, 0.4) }
+body[data-theme="midnight"] .slider-btn:hover { background: rgba(99, 102, 241, 0.2) }
+
+body[data-theme="neon"] {
+  --glass-bg: rgba(0, 0, 0, 0.92);
+  --glass-border: rgba(0, 255, 136, 0.1);
+  --glass-shadow: 0 0 20px rgba(0, 255, 136, 0.08);
+}
+body[data-theme="neon"] .panel-title { text-shadow: 0 0 20px rgba(0,255,136,0.3); color: #00ff88 }
+body[data-theme="neon"] .panel-icon { color: #00ff88 }
+body[data-theme="neon"] .btn-confirm { background: #00ff88; color: #000 }
+body[data-theme="neon"] .btn-confirm:hover { background: #00e577 }
+body[data-theme="neon"] .category-tab.active { background: rgba(0,255,136,0.1); border-color: rgba(0,255,136,0.3); color: #00ff88 }
+body[data-theme="neon"] .slider-btn:hover { background: rgba(0,255,136,0.15) }
+body[data-theme="neon"] .editor-label { color: #00ff88 }
+body[data-theme="neon"] .price-tag { color: #00ff88 }
+body[data-theme="neon"] .save-input:focus { border-color: rgba(0,255,136,0.4); box-shadow: 0 0 12px rgba(0,255,136,0.15) }
+body[data-theme="neon"] .btn-confirm-sm { background: #00ff88; color: #000 }
+
+body[data-theme="minimal"] {
+  --glass-bg: rgba(20, 20, 20, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.03);
+  --glass-shadow: none;
+  --glass-blur: blur(10px);
+}
+
+/* ===== Light Mode ===== */
+body.light-mode .panel {
+  background: rgba(255,255,255,0.75); border-color: rgba(0,0,0,0.08);
+}
+body.light-mode .panel-title,
+body.light-mode .editor-label { color: #1a1a1a; text-shadow: none }
+body.light-mode .panel-icon { color: #1a1a1a }
+body.light-mode .slider-label,
+body.light-mode .slider-value { color: #1a1a1a }
+body.light-mode .category-tab { color: rgba(0,0,0,0.5); border-color: rgba(0,0,0,0.06) }
+body.light-mode .category-tab:hover { background: rgba(0,0,0,0.04) }
+body.light-mode .category-tab.active { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.3); color: #3b82f6 }
+body.light-mode .slider-btn { color: #1a1a1a; background: rgba(0,0,0,0.04) }
+body.light-mode .slider-btn:hover { background: rgba(0,0,0,0.08) }
+body.light-mode .btn-close { color: rgba(0,0,0,0.4) }
+body.light-mode .btn-close:hover { background: rgba(0,0,0,0.06) }
+body.light-mode .btn-cancel { background: rgba(0,0,0,0.06); color: #1a1a1a }
+body.light-mode .btn-cancel:hover { background: rgba(0,0,0,0.1) }
+body.light-mode .btn-save,
+body.light-mode .btn-outfits { background: rgba(0,0,0,0.04); color: #1a1a1a; border-color: rgba(0,0,0,0.08) }
+body.light-mode .btn-save:hover,
+body.light-mode .btn-outfits:hover { background: rgba(0,0,0,0.08) }
+body.light-mode .save-input {
+  background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); color: #1a1a1a
+}
+body.light-mode .save-input::placeholder { color: rgba(0,0,0,0.3) }
+body.light-mode .save-input:focus {
+  border-color: rgba(59,130,246,0.4); box-shadow: 0 0 0 3px rgba(59,130,246,0.1)
+}
+body.light-mode .outfit-item { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.06) }
+body.light-mode .outfit-item:hover { background: rgba(0,0,0,0.06) }
+body.light-mode .outfit-name { color: #1a1a1a }
+body.light-mode .outfits-empty span { color: rgba(0,0,0,0.3) }
+body.light-mode .outfits-back { color: rgba(0,0,0,0.5) }
+body.light-mode .outfits-title { color: #1a1a1a }
+body.light-mode .save-dialog-title { color: #1a1a1a }
+body.light-mode .btn-cancel-sm { background: rgba(0,0,0,0.06); color: #1a1a1a }
+body.light-mode .price-tag { background: rgba(0,0,0,0.04); color: #1a1a1a; border-color: rgba(0,0,0,0.06) }

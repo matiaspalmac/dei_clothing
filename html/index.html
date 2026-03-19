@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dei Clothing</title>
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-theme="dark" style="background:transparent!important">
+
+    <div id="clothing-panel" class="panel hidden">
+        <!-- Header -->
+        <div class="panel-header">
+            <div class="panel-title-wrap">
+                <svg class="panel-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/>
+                </svg>
+                <h2 class="panel-title" id="storeTitle">Tienda de Ropa</h2>
+            </div>
+            <button class="btn-close" id="btnClose">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs" id="categoryTabs"></div>
+
+        <!-- Component Editor -->
+        <div class="component-editor" id="componentEditor">
+            <div class="editor-label" id="editorLabel">Camisetas</div>
+
+            <!-- Drawable slider -->
+            <div class="slider-group">
+                <span class="slider-label">Modelo</span>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="drawablePrev">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="slider-value" id="drawableValue">0 / 0</span>
+                    <button class="slider-btn" id="drawableNext">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Texture slider -->
+            <div class="slider-group">
+                <span class="slider-label">Textura</span>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="texturePrev">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="slider-value" id="textureValue">0 / 0</span>
+                    <button class="slider-btn" id="textureNext">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outfits View -->
+        <div class="outfits-view hidden" id="outfitsView">
+            <div class="outfits-header">
+                <button class="outfits-back" id="outfitsBack">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Volver
+                </button>
+                <span class="outfits-title">Mis Outfits</span>
+            </div>
+            <div class="outfits-list" id="outfitsList"></div>
+            <div class="outfits-empty hidden" id="outfitsEmpty">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
+                    <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/>
+                </svg>
+                <span>No tienes outfits guardados</span>
+            </div>
+        </div>
+
+        <!-- Save Outfit Dialog -->
+        <div class="save-dialog hidden" id="saveDialog">
+            <div class="save-dialog-title">Guardar Outfit</div>
+            <input type="text" class="save-input" id="saveInput" placeholder="Nombre del outfit..." maxlength="24" autocomplete="off">
+            <div class="save-dialog-btns">
+                <button class="btn-action btn-cancel-sm" id="saveCancelBtn">Cancelar</button>
+                <button class="btn-action btn-confirm-sm" id="saveConfirmBtn">Guardar</button>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons" id="actionButtons">
+            <button class="btn-action btn-save" id="btnSaveOutfit">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                Guardar Outfit
+            </button>
+            <button class="btn-action btn-outfits" id="btnMyOutfits">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Mis Outfits
+            </button>
+            <button class="btn-action btn-confirm" id="btnConfirm">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Confirmar
+            </button>
+            <button class="btn-action btn-cancel" id="btnCancel">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                Cancelar
+            </button>
+        </div>
+
+        <!-- Price tag -->
+        <div class="price-tag hidden" id="priceTag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+            </svg>
+            <span id="priceAmount">$200</span>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
